@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'diet_app'
+    'diet_app',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,11 @@ MAILERS = {
 #Custom User Model config
 
 AUTH_USER_MODEL="diet_app.CustomUser"
+
+
+#CUSTOME AUTHENTICATION BACKEND config
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  
+    'diet_app.backends.EmailBackend',       
+]
